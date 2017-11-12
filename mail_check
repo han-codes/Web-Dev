@@ -1,0 +1,57 @@
+<!--
+Enter an email address and this program will
+determine if the email address is valid.
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hannie's Mail Check</title>
+    <link rel="stylesheet" href="main.css">
+    <script>
+        function getEmail()
+        {
+            var atSign = "@";
+            var email = prompt("Enter your email address");
+            var numChars = email.length;
+            var myOutput = document.getElementById("output");
+            var checkSign = false;
+
+            myOutput.innerHTML = "";        // Clear the contents
+            myOutput.innerHTML = myOutput.innerHTML + email + " has " + numChars + " characters.";
+
+            for (var index = 1; index < numChars; index++)
+                {
+                    if(email.charAt(index) == atSign)
+                    checkSign = true;
+                }
+            if (checkSign = true)
+            {
+                if(email.charAt(numChars - 4) == ".")
+                {
+                    myOutput.innerHTML = myOutput.innerHTML + "<p>" + email + " is a valid email addres.</p>";
+                }
+                else {
+                    myOutput.innerHTML = myOutput.innerHTML + "<p>" + email + " is an invalid email address</p>";
+                }
+            }else{
+                myOutput.innerHTML = myOutput.innerHTML +"<br>" + email + " is not a valid email address";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Enter your contact information</h1>
+    <h3>Enter your email address here.</h3>
+    <br>
+    <br>
+    <input type="button" onclick="getEmail();" value="Begin now">
+    <br>
+    <br>
+    <h2>
+        <span id="output"></span>
+    </h2>
+</body>
+</html>
+
